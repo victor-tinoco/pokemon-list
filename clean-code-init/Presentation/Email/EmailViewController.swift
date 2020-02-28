@@ -10,12 +10,18 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class EmailViewController: UIViewController {
+protocol EmailViewControllerDelegate {
+    func didSelectPokemon(simplePokemon: Pokemon) -> UIViewController
+}
 
+class EmailViewController: UIViewController {
 //  MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
 //  MARK: - Variables
+    private var _delegate: EmailViewControllerDelegate!
+    private var _window: UIWindow?
+    
     var viewModel: EmailViewModelContract!
     var pokeList: [Pokemon] = []
     var disposeBag = DisposeBag()
@@ -28,9 +34,10 @@ class EmailViewController: UIViewController {
         bind()
     }
     
-    static func instantiate(viewModel: EmailViewModelContract) -> EmailViewController {
+    static func instantiate(viewModel: EmailViewModelContract, delegate: EmailViewControllerDelegate) -> EmailViewController {
         let vc = EmailViewController(nibName: nil, bundle: nil)
         vc.viewModel = viewModel
+        vc._delegate = delegate
         return vc
     }
     
@@ -43,16 +50,9 @@ class EmailViewController: UIViewController {
         
         tableView.rx.itemSelected.bind { indexPath in
             self.viewModel.didRequirePokemonsList()
-            
             let pokemon = self.viewModel.getPokemon(index: indexPath.row)
-            
-            let vm = DetailsViewModel(simplePoke: pokemon, useCase: PokemonUseCase(pokeRepos: PokemonImpl()))
-            let vc = DetailsViewController.instantiate(viewModel: vm)
+            let vc = self._delegate.didSelectPokemon(simplePokemon: pokemon)
             self.navigationController?.pushViewController(vc, animated: true)
-            
-            self.viewModel.pokeList.drive(onNext: { (list) in
-
-            }).disposed(by: self.disposeBag)
         }.disposed(by: disposeBag)
     }
 }

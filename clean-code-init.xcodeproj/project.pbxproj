@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E5B108B8611B4D3C2F0C2FC /* Pods_clean_code_init.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881E8A2838B7D9CC74E51A9A /* Pods_clean_code_init.framework */; };
+		780E4F5E240041AF00672AB2 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780E4F5D240041AF00672AB2 /* DI.swift */; };
 		7811747023F6E13100A07061 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7811746E23F6E13100A07061 /* DetailsViewController.swift */; };
 		7811747123F6E13100A07061 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7811746F23F6E13100A07061 /* DetailsViewController.xib */; };
 		7811747323F6E36E00A07061 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7811747223F6E36E00A07061 /* DetailsViewModel.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		780E4F5D240041AF00672AB2 /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		7811746E23F6E13100A07061 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		7811746F23F6E13100A07061 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		7811747223F6E36E00A07061 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 				7CDE6DBD2B9B537BF5D08B81 /* Pods-clean-code-init.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		780E4F5C2400415D00672AB2 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				780E4F5D240041AF00672AB2 /* DI.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 		7811746D23F6E10C00A07061 /* Details */ = {
@@ -195,6 +205,7 @@
 		785BC75023F4729200074538 /* clean-code-init */ = {
 			isa = PBXGroup;
 			children = (
+				780E4F5C2400415D00672AB2 /* DI */,
 				785BC76723F475AC00074538 /* Presentation */,
 				785BC76C23F477BF00074538 /* Domain */,
 				785BC76D23F477CD00074538 /* Data */,
@@ -392,6 +403,7 @@
 				7817FF5623F58DF400F33A6A /* EmailViewModel.swift in Sources */,
 				7811747323F6E36E00A07061 /* DetailsViewModel.swift in Sources */,
 				7817FF5323F58B5D00F33A6A /* EmailViewController.swift in Sources */,
+				780E4F5E240041AF00672AB2 /* DI.swift in Sources */,
 				7817FF4B23F57DC800F33A6A /* UserUseCase.swift in Sources */,
 				7811747A23F70B5500A07061 /* PokemonRepository.swift in Sources */,
 				7811747623F6E3DF00A07061 /* PokemonListAPIResponse.swift in Sources */,
